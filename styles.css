@@ -230,6 +230,36 @@ h3 { margin: 0 0 8px; }
 }
 .modal.open { display: grid; }
 
+
+.cert-access {
+  margin: 14px 0;
+  text-align: left;
+}
+
+.cert-help {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.cert-controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+#cert-password {
+  border: 1px solid #d7a1bc;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#cert-message {
+  min-height: 24px;
+  margin: 8px 0;
+  font-weight: 700;
+}
+
 .modal-card {
   width: min(92vw, 560px);
   background: #fff;

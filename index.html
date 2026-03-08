@@ -90,9 +90,17 @@
         <h3>С праздником 8 Марта! 💖</h3>
         <p>
           Дорогие девочки, оставайтесь самыми яркими, красивыми и счастливыми!
-          Мы все по своему уникальные, и мы не знали что можно было вам подарить, а ВБшку вроде любят все. Этот подарок — вам!
+          Этот подарок — с любовью от ваших одногруппников.
         </p>
-        <a class="btn" href="gift/congrats.pdf" download>Скачать PDF-подарок</a>
+        <div class="cert-access">
+          <p class="cert-help">Введите пароль, чтобы получить ваш сертификат:</p>
+          <div class="cert-controls">
+            <input id="cert-password" type="password" placeholder="Введите пароль" />
+            <button class="btn" id="check-cert">Открыть сертификат</button>
+          </div>
+          <p id="cert-message"></p>
+          <a class="btn" id="cert-download" href="gift/congrats.pdf" download hidden>Скачать сертификат</a>
+        </div>
         <button class="btn ghost" id="close-modal">Закрыть</button>
       </div>
     </div>

@@ -198,11 +198,47 @@ slider.addEventListener("touchend", (e) => {
 // Gift modal + flower burst
 const modal = document.getElementById("gift-modal");
 const closeModalBtn = document.getElementById("close-modal");
+const certPasswordInput = document.getElementById("cert-password");
+const certCheckBtn = document.getElementById("check-cert");
+const certMessage = document.getElementById("cert-message");
+const certDownload = document.getElementById("cert-download");
+
+const certificatesByPassword = {
+  flower01: "gift/certificates/certificate-1.pdf",
+  flower02: "gift/certificates/certificate-2.pdf",
+  flower03: "gift/certificates/certificate-3.pdf",
+  flower04: "gift/certificates/certificate-4.pdf",
+  flower05: "gift/certificates/certificate-5.pdf",
+  flower06: "gift/certificates/certificate-6.pdf",
+  flower07: "gift/certificates/certificate-7.pdf",
+  flower08: "gift/certificates/certificate-8.pdf",
+};
+
+function resetCertificateAccess() {
+  certPasswordInput.value = "";
+  certMessage.textContent = "";
+  certDownload.hidden = true;
+  certDownload.href = "gift/congrats.pdf";
+}
 
 giftBtn.addEventListener("click", () => {
   modal.classList.add("open");
   modal.setAttribute("aria-hidden", "false");
+  resetCertificateAccess();
   launchFlowers();
+});
+
+certCheckBtn.addEventListener("click", () => {
+  const password = certPasswordInput.value.trim();
+  const certPath = certificatesByPassword[password];
+  if (!certPath) {
+    certMessage.textContent = "Неверный пароль. Попробуйте ещё раз 💡";
+    certDownload.hidden = true;
+    return;
+  }
+  certMessage.textContent = "Пароль верный! Ваш сертификат готов к скачиванию ✅";
+  certDownload.href = certPath;
+  certDownload.hidden = false;
 });
 
 closeModalBtn.addEventListener("click", () => {
