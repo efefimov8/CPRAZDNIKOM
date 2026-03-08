@@ -23,26 +23,22 @@ function completeQuest(id, cardId) {
 
 // Quest 1
 const heartsZone = document.getElementById("hearts-zone");
-const spawnHeartBtn = document.getElementById("spawn-heart");
 let heartsCaught = 0;
-spawnHeartBtn.addEventListener("click", () => {
-  const heart = document.createElement("span");
-  heart.className = "heart";
+
+for (let i = 0; i < 3; i += 1) {
+  const heart = document.createElement("button");
+  heart.className = "heart static-heart";
   heart.textContent = "💖";
-  heart.style.left = `${Math.random() * 85}%`;
-  heart.style.bottom = "-12px";
   heart.addEventListener("click", () => {
+    if (heart.classList.contains("caught")) return;
+    heart.classList.add("caught");
     heartsCaught += 1;
-    heart.remove();
     if (heartsCaught >= 3) {
       completeQuest("heart", "quest-heart");
-      spawnHeartBtn.disabled = true;
-      spawnHeartBtn.textContent = "Сердечки пойманы!";
     }
   });
   heartsZone.appendChild(heart);
-  setTimeout(() => heart.remove(), 2200);
-});
+}
 
 // Quest 2
 const wishes = [
@@ -52,18 +48,11 @@ const wishes = [
 ];
 let wishIndex = 0;
 const wishBtn = document.getElementById("wish-btn");
-const wishList = document.getElementById("wish-list");
+const wishDisplay = document.getElementById("wish-display");
 wishBtn.addEventListener("click", () => {
-  if (wishIndex >= wishes.length) return;
-  const li = document.createElement("li");
-  li.textContent = wishes[wishIndex];
-  wishList.appendChild(li);
-  wishIndex += 1;
-  if (wishIndex === wishes.length) {
-    completeQuest("wishes", "quest-wishes");
-    wishBtn.disabled = true;
-    wishBtn.textContent = "Все пожелания получены";
-  }
+  wishDisplay.textContent = wishes[wishIndex];
+  wishIndex = (wishIndex + 1) % wishes.length;
+  completeQuest("wishes", "quest-wishes");
 });
 
 // Quest 3
@@ -129,33 +118,32 @@ memoryGrid.addEventListener("click", (e) => {
 
 // Wishes slider: 20 people, 4 per page
 const classmatesWishes = [
-  { text: "Пусть каждый день будет светлым и добрым!", from: "Артём" },
-  { text: "Улыбок, счастья и весеннего настроения!", from: "Кирилл" },
-  { text: "Пусть мечты исполняются быстрее, чем дедлайны.", from: "Илья" },
-  { text: "Любви, тепла и ярких эмоций каждый день.", from: "Максим" },
-  { text: "Пусть во всем сопутствует удача ✨", from: "Даниил" },
-  { text: "Здоровья, гармонии и радости в сердце.", from: "Никита" },
-  { text: "Пусть учеба дается легко и уверенно!", from: "Егор" },
-  { text: "Больше поводов для смеха и праздника.", from: "Роман" },
-  { text: "Пусть рядом будут только искренние люди.", from: "Матвей" },
-  { text: "Желаю вдохновения и красивых побед!", from: "Иван" },
-  { text: "Оставайтесь такими же прекрасными 💖", from: "Алексей" },
-  { text: "Мира в душе и баланса во всем.", from: "Павел" },
-  { text: "Пусть весна подарит новые возможности!", from: "Степан" },
-  { text: "Пусть будет много цветов и комплиментов.", from: "Тимур" },
-  { text: "Уверенности, нежности и вдохновения 🌸", from: "Глеб" },
-  { text: "Пусть каждый день будет поводом для радости.", from: "Семён" },
-  { text: "Счастья, любви и солнечного настроения!", from: "Дмитрий" },
-  { text: "Пусть жизнь будет наполнена чудесами.", from: "Руслан" },
-  { text: "Пусть у вас всегда всё получается!", from: "Антон" },
-  { text: "Спасибо, что делаете группу ярче каждый день.", from: "Владислав" },
+  { text: "Пусть каждый день будет светлым и добрым!", from: "Артёма" },
+  { text: "Улыбок, счастья и весеннего настроения!", from: "Кирилла" },
+  { text: "Пусть мечты исполняются быстрее, чем дедлайны.", from: "Ильи" },
+  { text: "Любви, тепла и ярких эмоций каждый день.", from: "Максима" },
+  { text: "Пусть во всем сопутствует удача ✨", from: "Даниила" },
+  { text: "Здоровья, гармонии и радости в сердце.", from: "Тимофея" },
+  { text: "Пусть учеба дается легко и уверенно!", from: "Егора" },
+  { text: "Больше поводов для смеха и праздника.", from: "Ромы" },
+  { text: "Пусть рядом будут только искренние люди.", from: "Саши" },
+  { text: "Желаю вдохновения и красивых побед!", from: "Максима" },
+  { text: "Оставайтесь такими же прекрасными 💖", from: "Артёма" },
+  { text: "Мира в душе и баланса во всем.", from: "Артёма" },
+  { text: "Пусть весна подарит новые возможности!", from: "Ильи" },
+  { text: "Пусть будет много цветов и комплиментов.", from: "Коли" },
+  { text: "Уверенности, нежности и вдохновения 🌸", from: "Антона" },
+  { text: "Пусть каждый день будет поводом для радости.", from: "Кирилла" },
+  { text: "Счастья, любви и солнечного настроения!", from: "Андрея" },
+  { text: "Пусть жизнь будет наполнена чудесами.", from: "Елисея" },
+  { text: "Пусть у вас всегда всё получается!", from: "Луки" },
+  { text: "Спасибо, что делаете группу ярче каждый день.", from: "Сергея" },
 ];
 
 const perPage = 4;
 let currentPage = 0;
 const totalPages = Math.ceil(classmatesWishes.length / perPage);
 const wishCards = document.getElementById("wish-cards");
-const wishesPage = document.getElementById("wishes-page");
 const prevBtn = document.getElementById("wishes-prev");
 const nextBtn = document.getElementById("wishes-next");
 const slider = document.getElementById("wishes-slider");
@@ -172,7 +160,6 @@ function renderWishesPage() {
     wishCards.appendChild(card);
   });
 
-  wishesPage.textContent = `Страница ${currentPage + 1} / ${totalPages}`;
   prevBtn.disabled = currentPage === 0;
   nextBtn.disabled = currentPage === totalPages - 1;
 }

@@ -40,16 +40,13 @@
 
       <article class="quest card" id="quest-heart">
         <h3>1) Поймай 3 сердечка</h3>
-        <p>Нажимай на сердечки, когда они появляются.</p>
-        <button class="btn" id="spawn-heart">Поймать сердечко</button>
         <div class="hearts-zone" id="hearts-zone"></div>
       </article>
 
       <article class="quest card" id="quest-wishes">
-        <h3>2) Получи 3 пожелания</h3>
-        <p>Открывай пожелания по одному.</p>
-        <button class="btn" id="wish-btn">Открыть пожелание</button>
-        <ul id="wish-list"></ul>
+        <h3>2) Получи пожелание</h3>
+        <button class="btn" id="wish-btn">Получить пожелание</button>
+        <p id="wish-display" class="wish-display"></p>
       </article>
 
       <article class="quest card" id="quest-mood">
@@ -73,15 +70,12 @@
 
       <section class="wishes card">
         <h2>Пожелания от одногруппников</h2>
-        <p class="subtitle">Листайте карточки: в каждом блоке по 4 пожелания (всего 20).</p>
-
         <div class="wishes-slider" id="wishes-slider" aria-label="Слайдер пожеланий">
           <button class="btn slider-btn" id="wishes-prev" aria-label="Предыдущие пожелания">←</button>
           <div class="wish-cards" id="wish-cards"></div>
           <button class="btn slider-btn" id="wishes-next" aria-label="Следующие пожелания">→</button>
         </div>
 
-        <p class="slider-meta" id="wishes-page">Страница 1 / 5</p>
       </section>
 
       <section class="gift card" id="gift-section">

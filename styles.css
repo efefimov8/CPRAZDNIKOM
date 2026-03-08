@@ -121,6 +121,14 @@ h3 { margin: 0 0 8px; }
 .big { padding: 14px 24px; font-size: 18px; }
 .ghost { background: #e9bfd3; color: #6e2a4d; }
 
+.wish-display {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #ffeaf4;
+  min-height: 44px;
+}
+
 .mood-options {
   display: flex;
   flex-wrap: wrap;
@@ -128,24 +136,26 @@ h3 { margin: 0 0 8px; }
 }
 
 .hearts-zone {
-  height: 120px;
   margin-top: 12px;
   border: 1px dashed #d575a1;
   border-radius: 12px;
-  position: relative;
-  overflow: hidden;
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  justify-content: center;
 }
 
 .heart {
-  position: absolute;
-  font-size: 28px;
+  font-size: 32px;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  animation: rise 2.1s linear forwards;
+  transition: filter 0.2s ease, opacity 0.2s ease;
 }
 
-@keyframes rise {
-  from { transform: translateY(100px) scale(0.8); opacity: 0; }
-  to { transform: translateY(-20px) scale(1.2); opacity: 1; }
+.static-heart.caught {
+  filter: grayscale(1) brightness(0.6);
+  opacity: 0.8;
 }
 
 .wishes-slider {
@@ -166,13 +176,6 @@ h3 { margin: 0 0 8px; }
 .wish-cards {
   display: grid;
   gap: 10px;
-}
-
-.slider-meta {
-  margin: 10px 0 0;
-  text-align: center;
-  font-weight: 700;
-  color: #a2376c;
 }
 
 .wish-card {
