@@ -1,0 +1,294 @@
+:root {
+  --accent: #c43f81;
+  --accent-dark: #a62f69;
+  --text: #69224a;
+  --white: #fff8fc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  background: radial-gradient(circle at top, #ffe9f4, #f6dce9 40%, #f1d1e1);
+  color: var(--text);
+}
+
+.page {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 14px 10px 40px;
+  display: grid;
+  gap: 12px;
+}
+
+.card {
+  background: var(--white);
+  border: 2px solid #da8bb0;
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow: 0 8px 24px #c2427d26;
+}
+
+.hero {
+  display: grid;
+  gap: 12px;
+  background: linear-gradient(145deg, #b23c74 0%, #c95391 45%, #f3d3e3 100%);
+}
+
+.hero-text { color: #fff; }
+.badge {
+  width: fit-content;
+  padding: 6px 10px;
+  border: 1px solid #ffffff8f;
+  border-radius: 999px;
+  margin: 0 0 10px;
+  font-size: 13px;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(28px, 8vw, 42px);
+  line-height: 1;
+}
+
+.hero h1 span {
+  display: block;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.hero-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.gift-nav {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.gift-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.gift-link {
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none;
+  background: #7f1a4b;
+  border-radius: 999px;
+  padding: 8px 14px;
+}
+
+h2 { margin: 0 0 6px; font-size: clamp(24px, 7vw, 34px); }
+h3 { margin: 0 0 8px; }
+.subtitle { margin: 0; }
+
+.progress {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #fbe5ef;
+  font-weight: 700;
+  margin-top: 10px;
+  width: fit-content;
+}
+
+.quest {
+  background: #fff3f9;
+}
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn:hover { background: var(--accent-dark); }
+.btn:disabled { background: #c6a6b7; cursor: not-allowed; }
+.big { padding: 14px 24px; font-size: 18px; }
+.ghost { background: #e9bfd3; color: #6e2a4d; }
+
+.wish-display {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  background: #ffeaf4;
+  min-height: 44px;
+}
+
+.mood-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.hearts-zone {
+  margin-top: 12px;
+  border: 1px dashed #d575a1;
+  border-radius: 12px;
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  justify-content: center;
+}
+
+.heart {
+  font-size: 32px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.static-heart.caught {
+  filter: grayscale(1) brightness(0.6);
+  opacity: 0.8;
+}
+
+.wishes-slider {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.slider-btn {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 20px;
+}
+
+.wish-cards {
+  display: grid;
+  gap: 10px;
+}
+
+.wish-card {
+  border: 1px solid #e6a8c5;
+  border-radius: 14px;
+  padding: 12px;
+  background: #fff3f9;
+}
+
+.wish-card p {
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+
+.wish-card span {
+  display: block;
+  text-align: right;
+  color: #a2376c;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.memory-grid {
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.memory-card {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  border: 1px solid #d985ad;
+  background: #f6b8d4;
+  color: transparent;
+  font-size: 24px;
+}
+
+.memory-card.revealed,
+.memory-card.matched {
+  background: #fff;
+  color: #b63778;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: #7e3355a8;
+  display: none;
+  place-items: center;
+  z-index: 10;
+}
+.modal.open { display: grid; }
+
+
+.cert-access {
+  margin: 14px 0;
+  text-align: left;
+}
+
+.cert-help {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.cert-controls {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+#cert-password {
+  border: 1px solid #d7a1bc;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+#cert-message {
+  min-height: 24px;
+  margin: 8px 0;
+  font-weight: 700;
+}
+
+.modal-card {
+  width: min(92vw, 560px);
+  background: #fff;
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+}
+
+.flower {
+  position: fixed;
+  font-size: 26px;
+  top: -20px;
+  pointer-events: none;
+  animation: fall 2.4s linear forwards;
+  z-index: 20;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+.done { outline: 3px solid #9be1b6; }
+
+@media (min-width: 900px) {
+  .page { max-width: 980px; }
+  .hero { grid-template-columns: 1fr 1fr; align-items: stretch; }
+  .hero-image { height: 100%; min-height: 320px; }
+  .wish-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

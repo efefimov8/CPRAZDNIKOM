@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>С 8 марта, девочки!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero card">
+        <div class="hero-text">
+          <p class="badge">от ваших одногруппников</p>
+          <h1>С 8 Марта, <span>прекрасные дамы!</span></h1>
+          <p>
+            Спасибо за улыбки, поддержку, вдохновение и ту атмосферу,
+            которая делает каждую пару теплее.
+          </p>
+
+          <div class="gift-nav">
+            <p class="gift-title">Где подарок?</p>
+            <a class="gift-link" href="#gift-section">Перейти к подарку ↓</a>
+          </div>
+        </div>
+        <img
+          class="hero-image"
+          src="https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1200&q=80"
+          alt="Букет розовых цветов"
+        />
+      </section>
+
+      <section class="quests card">
+        <h2>Мини-квесты для открытия подарка</h2>
+        <p class="subtitle">Пройдите все задания, и кнопка внизу станет активной 💝</p>
+        <div class="progress" id="progress">0 / 4 квеста выполнено</div>
+      </section>
+
+      <article class="quest card" id="quest-heart">
+        <h3>1) Поймай 3 сердечка</h3>
+        <p>Нажми на 3 сердечка. После нажатия сердечко затемняется.</p>
+        <div class="hearts-zone" id="hearts-zone"></div>
+      </article>
+
+      <article class="quest card" id="quest-wishes">
+        <h3>2) Получи пожелание</h3>
+        <p>Нажимай на кнопку — новое пожелание заменяет предыдущее.</p>
+        <button class="btn" id="wish-btn">Получить пожелание</button>
+        <p id="wish-display" class="wish-display"></p>
+      </article>
+
+      <article class="quest card" id="quest-mood">
+        <h3>3) Выбери муд дня</h3>
+        <p>Выбери настроение, с которым проведёшь этот весенний день.</p>
+        <div class="mood-options" id="mood-options">
+          <button class="btn mood">🌸 Нежность</button>
+          <button class="btn mood">✨ Вдохновение</button>
+          <button class="btn mood">💃 Энергия</button>
+          <button class="btn mood">😌 Спокойствие</button>
+        </div>
+        <p id="mood-msg"></p>
+      </article>
+
+      <article class="quest card" id="quest-memory">
+        <h3>4) Найди пару</h3>
+        <p>Открой две одинаковые карточки.</p>
+        <div class="memory-grid" id="memory-grid"></div>
+        <p id="memory-msg"></p>
+      </article>
+
+      <section class="wishes card">
+        <h2>Пожелания от одногруппников</h2>
+        <div class="wishes-slider" id="wishes-slider" aria-label="Слайдер пожеланий">
+          <button class="btn slider-btn" id="wishes-prev" aria-label="Предыдущие пожелания">←</button>
+          <div class="wish-cards" id="wish-cards"></div>
+          <button class="btn slider-btn" id="wishes-next" aria-label="Следующие пожелания">→</button>
+        </div>
+
+      </section>
+
+      <section class="gift card" id="gift-section">
+        <h2>Финальный сюрприз</h2>
+        <p>Кнопка активируется только после прохождения всех интерактивов.</p>
+        <button class="btn big" id="gift-btn" disabled>Получить подарок 🎁</button>
+      </section>
+    </main>
+
+    <div class="modal" id="gift-modal" aria-hidden="true">
+      <div class="modal-card">
+        <h3>С праздником 8 Марта! 💖</h3>
+        <p>
+          Дорогие девочки, оставайтесь самыми яркими, красивыми и счастливыми!
+          Этот подарок — с любовью от ваших одногруппников.
+        </p>
+        <div class="cert-access">
+          <p class="cert-help">Введите пароль, чтобы получить ваш сертификат:</p>
+          <div class="cert-controls">
+            <input id="cert-password" type="password" placeholder="Введите пароль" />
+            <button class="btn" id="check-cert">Открыть сертификат</button>
+          </div>
+          <p id="cert-message"></p>
+          <a class="btn" id="cert-download" href="gift/congrats.pdf" download hidden>Скачать сертификат</a>
+        </div>
+        <button class="btn ghost" id="close-modal">Закрыть</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
